@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:hateoas="http://www.thymeleaf.org/extras/spring-hateoas">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/userList.css}">
+
+<title>UserList</title>
+
+</head>
+
+<body>
+	<div class="bodies">
+
+		<h2>User List</h2>
+		<div>
+<a th:href="@{/user/showForm}" class="button">ADD TASK</a>
+
+</div>
+<br>
+
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Full Name</th>
+						<th>Task</th>
+						<th>Remarks</th>
+						<th>Last Seen</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="listUser:${users}">
+						<td th:text="${listUser.fullName}"/>
+						<td th:text="${listUser.task}"/>
+						<td th:text="${listUser.remarks}"/>
+						<td th:text="${listUser.lastSeen}"/>
+						<td ><a class="button" th:href="@{/user/update(userid=${listUser.id})}">Update</a></td>
+						 <!--   <td ><a class="button" th:href="${listUser.links.getLink('self').href}">Details</a></td>  -->
+					</tr>
+					
+					
+				</tbody>
+			</table>
+
+
+		</div>
+	</div>
+
+
+</body>
+</html>

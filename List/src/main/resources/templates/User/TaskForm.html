@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/userList.css}">
+<title>UserList</title>
+
+</head>
+
+<body>
+
+<div class="bodies">
+	
+	
+	<div class="container">
+	<h2>Task</h2>
+	<form  action="#" th:action="@{/user/userSave}" th:object="${users}" method=POST    >
+	  
+	<label >FullName</label>
+	<input class="email" type="text" th:field="*{fullName}" name="Email_Id" placeholder="FullName"  >
+	<br>
+	<br>
+	<label>Task</label>
+	<input class="paswd"   type="text" th:field="*{task}" name="PSWD" placeholder="Task"  >
+	<br>
+	<br>
+		<label>Remarks</label>
+	<input class="paswd"   type="text" th:field="*{remarks}" name="PSWD" placeholder="Remarks"  >
+	<br>
+	<br>
+		<input type="hidden" th:field="*{id}">
+
+	<button class="button">Save</button>
+	
+	</form>
+	
+	<a  th:href="@{/user/List}">Back to List</a>
+	<br>
+	<a  th:href="@{/login/showLogin}">Home</a>
+	</div>
+	</div>
+</body>
+</html>
